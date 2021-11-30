@@ -15,7 +15,7 @@ int main() {
     cout << "Enter price of the second item: ";
     cin >> price2;
     string cardChoise;
-    cout << "Does customer have a club card?? (Y/N): ";
+    cout << "Does customer have a club card? (Y/N): ";
     cin >> cardChoise;
     if (cardChoise == "y" || cardChoise == "Y") {
         card = true;
