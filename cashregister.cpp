@@ -25,6 +25,8 @@ int main() {
     cout << "Enter tax rate, e.g. 5.5 for 5.5% tax: ";
     cin >> tax;
 
+    cout<<endl;
+
     float price = price1 + price2;
     cout << setprecision(2) << fixed << "Base price = " << price << endl;
 
