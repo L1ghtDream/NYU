@@ -5,7 +5,7 @@ using namespace std;
 
 void bmimetricf(int weight, float height) {
     float bmi = weight / (height * height);
-    cout << setprecision(1) << "BMI is: " << bmi << ", Status is ";
+    cout << setprecision(3) << "BMI is: " << bmi << ", Status is ";
     if (bmi < 18.5) {
         cout << "Underweight";
     } else if (bmi < 24.9) {
