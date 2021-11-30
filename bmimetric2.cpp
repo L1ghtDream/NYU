@@ -1,15 +1,15 @@
 #include "iostream"
 
-float bmimetricf(int weight, float height) {
+bmimetricf(int weight, float height) {
     float data = weight / (height * height);
     if (data < 18.5) {
-        cout << "Underweight";
+        std::cout << "Underweight";
     } else if (data < 24.9) {
-        cout << "Normal";
+        std::cout << "Normal";
     } else if (data < 29.9) {
-        cout << "Overweight";
+        std::cout << "Overweight";
     } else {
-        cout << "Obese";
+        std::cout << "Obese";
     }
     return data;
 }
