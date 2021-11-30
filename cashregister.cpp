@@ -15,7 +15,7 @@ int main() {
     cout << "Enter price of the second item: ";
     cin >> price2;
     string cardChoise;
-    cout << "Does customer have a club card? ";
+    cout << "Does customer have a club card?? (Y/N): ";
     cin >> cardChoise;
     if (cardChoise == "y" || cardChoise == "Y") {
         card = true;
@@ -24,8 +24,6 @@ int main() {
     }
     cout << "Enter tax rate, e.g. 5.5 for 5.5% tax: ";
     cin >> tax;
-
-    cout<<endl;
 
     float price = price1 + price2;
     cout << setprecision(2) << fixed << "Base price = " << price << endl;
