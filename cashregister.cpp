@@ -1,5 +1,6 @@
 #include "iostream"
 #include "cmath"
+
 using namespace std;
 
 
@@ -25,15 +26,14 @@ int main() {
     cin >> tax;
 
     float price = price1 + price2;
-    price = ceil(price * 100.0) / 100.0;
-    cout << "Base price = " << price << endl;
+    cout << setprecision(2) << fixed << "Base price = " << price << endl;
+
     price1 <= price2 ? price = price1 / 2 + price2 : price = price2 / 2 + price1;
     if (card) {
         price = 90.0 * price / 100.0;
     }
-    price = ceil(price * 100.0) / 100.0;
-    cout << "Price after discounts = " << price << endl;
+    cout << setprecision(2) << fixed << "Price after discounts = " << price << endl;
+
     price = (100.0 + tax) * price / 100.0;
-    price = ceil(price * 100.0) / 100.0;
-    cout << "Total price = " << price << endl;
+    cout << setprecision(2) << fixed << "Total price = " << price << endl;
 }
