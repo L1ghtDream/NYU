@@ -1,6 +1,6 @@
 #include "iostream"
 
-bmimetricf(int weight, float height) {
+int bmimetricf(int weight, float height) {
     float data = weight / (height * height);
     if (data < 18.5) {
         std::cout << "Underweight";
