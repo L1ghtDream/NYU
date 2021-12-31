@@ -33,5 +33,5 @@ void SportTicket::sell_beer() {
 }
 
 string SportTicket::print_ticket() {
-    return ShowTicket::print_ticket() + (beer_sold() ? "beer" : "nobeer");;
+    return ShowTicket::print_ticket() + " " + (beer_sold() ? "beer" : "nobeer");;
 }
