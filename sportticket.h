@@ -32,6 +32,9 @@ bool SportTicket::beer_sold() {
 }
 
 void SportTicket::sell_beer() {
+    if (!is_sold()) {
+        return;
+    }
     sold = true;
 }
 
