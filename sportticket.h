@@ -14,7 +14,7 @@ private:
 
 public:
     SportTicket(string row, string no) : ShowTicket(row, no) {
-
+        this->sold = false;
     }
 
     bool beer_sold();
@@ -25,6 +25,9 @@ public:
 };
 
 bool SportTicket::beer_sold() {
+    if (!is_sold()) {
+        return false;
+    }
     return sold;
 }
 
