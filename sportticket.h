@@ -33,7 +33,5 @@ void SportTicket::sell_beer() {
 }
 
 string SportTicket::print_ticket() {
-    //AA 101 sold nobeer;
-    return row + " " + seat + " " + (SportTicket::is_sold() ? "sold" : "available") + + " " + (beer_sold() ? "bear" : "nobear");;
-    //ShowTicket::print_ticket() + " " + (beer_sold() ? "bear" : "nobear");
+    return ShowTicket::print_ticket() + (beer_sold() ? "beer" : "nobeer");;
 }
