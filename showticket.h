@@ -6,17 +6,17 @@ using namespace std;
 
 class ShowTicket;
 
-vector<string> sold;
-
 class ShowTicket {
 private:
     string row;
     string seat;
+    bool sold;
 
 public:
     ShowTicket(string row, string seat) {
         this->row = row;
         this->seat = seat;
+        this->sold = false;
     }
 
     bool is_sold();
@@ -25,21 +25,16 @@ public:
 
     string print_ticket();
 
-    string getIdentifier();
 };
 
 bool ShowTicket::is_sold() {
-    return std::find(sold.begin(), sold.end(), getIdentifier()) != sold.end();
+    return sold;
 }
 
 void ShowTicket::sell_seat() {
-    sold.push_back(getIdentifier());
+    sold = true;
 }
 
 string ShowTicket::print_ticket() {
     return row + " " + seat + " " + (is_sold() ? "sold" : "available");
-}
-
-string ShowTicket::getIdentifier() {
-    return row + seat;
 }

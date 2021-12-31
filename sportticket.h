@@ -10,11 +10,11 @@ class SportTicket;
 class SportTicket : public ShowTicket {
 
 private:
-    bool sold;
+    bool beerSold;
 
 public:
     SportTicket(string row, string seat) : ShowTicket(row, seat) {
-        this->sold = false;
+        this->beerSold = false;
     }
 
     bool beer_sold();
@@ -25,17 +25,11 @@ public:
 };
 
 bool SportTicket::beer_sold() {
-    if (!is_sold()) {
-        return false;
-    }
-    return sold;
+    return beerSold;
 }
 
 void SportTicket::sell_beer() {
-    if (!is_sold()) {
-        return;
-    }
-    sold = true;
+    beerSold = true;
 }
 
 string SportTicket::print_ticket() {
