@@ -15,7 +15,7 @@ private:
 
 public:
     ShowTicket(string row, string no) {
-        this->row = std::move(row);
+        this->row = row;
         this->no = no;
     }
 
