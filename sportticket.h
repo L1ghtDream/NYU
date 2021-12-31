@@ -5,15 +5,14 @@
 
 using namespace std;
 
-class SportTicket;
-
-class SportTicket : public ShowTicket {
+class SportTicket : public ShowTicket{
 
 private:
     bool beerSold;
 
 public:
-    SportTicket(string row, string seat) : ShowTicket(row, seat) {
+
+    SportTicket(string row, string seat) : ShowTicket(row, seat){
         this->beerSold = false;
     }
 
@@ -22,6 +21,7 @@ public:
     void sell_beer();
 
     string print_ticket();
+
 };
 
 bool SportTicket::beer_sold() {
@@ -33,5 +33,6 @@ void SportTicket::sell_beer() {
 }
 
 string SportTicket::print_ticket() {
-    return ShowTicket::print_ticket() + " " + (beer_sold() ? "beer" : "nobeer");;
+    return ShowTicket::print_ticket() + " " + (beer_sold() ? "beer" : "nobeer");
 }
+

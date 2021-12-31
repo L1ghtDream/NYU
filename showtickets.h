@@ -18,6 +18,7 @@ public:
     string print_ticket(string row, string seat);
 
     string getIdentifier(string row, string seat);
+
 };
 
 bool ShowTickets::is_sold(string row, string seat) {

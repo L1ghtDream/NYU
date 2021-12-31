@@ -25,7 +25,7 @@ public:
 
     void sell_seat();
 
-    string print_ticket();
+    virtual string print_ticket();
 
 };
 
@@ -40,3 +40,4 @@ void ShowTicket::sell_seat() {
 string ShowTicket::print_ticket() {
     return row + " " + seat + " " + (is_sold() ? "sold" : "available");
 }
+
