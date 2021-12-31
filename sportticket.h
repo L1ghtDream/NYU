@@ -13,7 +13,7 @@ private:
     bool sold;
 
 public:
-    SportTicket(string row, string no) : ShowTicket(row, no) {
+    SportTicket(string row, string seat) : ShowTicket(row, seat) {
         this->sold = false;
     }
 
