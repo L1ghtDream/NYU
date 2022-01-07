@@ -1,11 +1,8 @@
-#include <string>
 #include "cpluspluslabs.h"
 
-using namespace std;
+void add_node_head(NODE **data, string firstname, string lastname, string email);
 
-void add_node_tail(NODE **data, string firstname, string lastname, string email);
-
-void add_node_tail(NODE **data, string firstname, string lastname, string email) {
+void add_node_head(NODE **data, string firstname, string lastname, string email) {
     if (*data == nullptr) {
         NODE *tmp = new NODE;
         tmp->firstname = firstname;
@@ -19,7 +16,6 @@ void add_node_tail(NODE **data, string firstname, string lastname, string email)
     tmp->firstname = firstname;
     tmp->lastname = lastname;
     tmp->email = email;
-    tmp->next = nullptr;
-    (*data)->next = tmp;
+    tmp->next = *data;
+    *data = tmp;
 }
-
