@@ -1,9 +1,10 @@
 #include <string>
 #include <fstream>
 #include <iostream>
-#include "prototypes.h"
 
 using namespace std;
+
+void csv_export(string data[][10], int records, int columns, string filename);
 
 void csv_export(string data[][10], int records, int columns, string filename) {
     ofstream fout(filename, ios::out);
