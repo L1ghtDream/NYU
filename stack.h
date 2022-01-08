@@ -25,7 +25,7 @@ int Stack::pop() {
 }
 
 int Stack::peek() {
-    
+    return a[top];
 }
 
 bool Stack::isEmpty() {
