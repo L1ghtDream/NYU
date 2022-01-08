@@ -16,6 +16,7 @@ Node *insertnb(Node *node, int key) {
         return new_node(key);
     }
 
+    node->height++;
     if (node->key < key) {
         node->right = new_node(key);
     } else {
