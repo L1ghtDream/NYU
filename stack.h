@@ -21,6 +21,9 @@ bool Stack::push(int x) {
 }
 
 int Stack::pop() {
+    if (top == -1) {
+        return 0;
+    }
     return a[top--];
 }
 
