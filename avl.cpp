@@ -15,6 +15,8 @@ int get_balance(Node *x);
 
 int height(Node *N);
 
+Node *insert(Node *node, int key);
+
 Node *new_node(int key) {
     Node *node = new Node;
     node->key = key;
@@ -69,28 +71,56 @@ Node *right_rotate(Node *x) {
 }
 
 int get_balance(Node *x) {
-    if (x == nullptr){
+    if (x == nullptr) {
         return 0;
     }
     return height(x->left) - height(x->right);
 }
 
 int height(Node *N) {
-    if (N == nullptr){
+    if (N == nullptr) {
         return 0;
     }
     return N->height;
 }
-/*
 
-a
- \
-  b
-   \
-    c
+Node *insert(Node *node, int key) {
+    if (node == nullptr){
+        return (new_node(key));
+    }
 
-  b
- /\
-a  c
+    if (key < node->key){
+        node->left = insert(node->left, key);
+    }
+    else if (key > node->key){
+        node->right = insert(node->right, key);
+    }
+    else{
+        return node;
+    }
 
- */
+    node->height = 1 + max(height(node->left),
+                           height(node->right));
+
+    int balance = get_balance(node);
+
+    if (balance > 1 && key < node->left->key){
+        return right_rotate(node);
+    }
+
+    if (balance < -1 && key > node->right->key){
+        return left_rotate(node);
+    }
+
+    if (balance > 1 && key > node->left->key) {
+        node->left = left_rotate(node->left);
+        return right_rotate(node);
+    }
+
+    if (balance < -1 && key < node->right->key) {
+        node->right = right_rotate(node->right);
+        return left_rotate(node);
+    }
+
+    return node;
+}
