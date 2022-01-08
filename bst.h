@@ -2,14 +2,14 @@
 
 using namespace std;
 
-class IterationData {
+class Data {
 public:
-    int returnVal;
-    int iterationCount;
+    int val;
+    int count;
 
-    IterationData() {
-        this->returnVal = 0;
-        this->iterationCount = 0;
+    Data() {
+        this->val = 0;
+        this->count = 0;
     }
 };
 
@@ -26,7 +26,7 @@ public:
 
     int nth_node(int n);
 
-    IterationData *nth_node(BST *node, IterationData *data, int n);
+    void nth_node(BST *node, int n, Data *data);
 };
 
 BST::BST() {
@@ -58,24 +58,36 @@ void BST::insert(int data) {
 }
 
 int BST::nth_node(int n) {
-    return nth_node(this, new IterationData, n)->returnVal;
+
+    Data *data = new Data;
+
+    nth_node(this, n, data);
+
+    //cout << data->count<<endl;
+    //cout << data->val<<endl;
+
+    return data->val;
 }
 
-IterationData *BST::nth_node(BST *node, IterationData *data, int n) {
-    if (node->left != nullptr) {
-        data = nth_node(node->left, data, n);
+void BST::nth_node(BST *node, int n, Data *data) {
+
+    if(node->left!= nullptr){
+        nth_node(node->left, n, data);
     }
-    if (data->iterationCount < n) {
-        data->iterationCount++;
-        if (data->iterationCount == n) {
-            data->returnVal = node->data;
-            return data;
-        } else if (node->right != nullptr) {
-            return nth_node(node->right, data, n);
-        } else {
-            return data;
-        }
+
+    data->count++;
+
+    if(data->count==n){
+        data->val=node->data;
     }
+
+    if(node->right!= nullptr){
+        nth_node(node->right, n, data);
+    }
+
+
+
+
 }
 
 /*
