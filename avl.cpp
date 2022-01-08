@@ -15,15 +15,21 @@ Node *new_node(int key) {
     Node *node = new Node;
     node->key = key;
     node->height = 1;
+    node->left= nullptr;
+    node->right= nullptr;
     return node;
 }
 
 Node *insertnb(Node *node, int key) {
+    //cout<<"Call on " << node<<endl;
     if (node == nullptr) {
         return new_node(key);
     }
 
     node->height++;
+
+    //cout<<"L: "<<node->left<<endl;
+    //cout<<"R: "<<node->right<<endl;
 
     if (node->key < key) {
         if (node->right == nullptr) {
