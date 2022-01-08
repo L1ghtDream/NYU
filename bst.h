@@ -25,7 +25,19 @@ BST::BST(int data) {
 }
 
 void BST::insert(int data) {
-
+    if (this->data < data) {
+        if (this->right == nullptr) {
+            this->right = new BST(data);
+        } else {
+            this->right->insert(data);
+        }
+    } else {
+        if (this->left == nullptr) {
+            this->left = new BST(data);
+        } else {
+            this->left->insert(data);
+        }
+    }
 }
 
 int BST::nth_node(int n) {
