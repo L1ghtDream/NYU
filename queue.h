@@ -20,13 +20,28 @@ bool Queue::enqueue(int x) {
 }
 
 int Queue::dequeue() {
+    if(rear_value==-1){
+        return 0;
+    }
+    int output = a[0];
+
+    for(int i=1;i<rear_value;i++){
+        a[i-1]=a[i];
+    }
+
+    rear_value--;
+    return output;
 
 }
 
 int Queue::front() {
+    if(rear_value==-1){
+        return 0;
+    }
 
+    return a[0];
 }
 
 int Queue::rear() {
-
+    return a[rear_value];
 }
