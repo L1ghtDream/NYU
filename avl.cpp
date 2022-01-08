@@ -24,20 +24,41 @@ Node *insertnb(Node *node, int key) {
     }
 
     node->height++;
+
     if (node->key < key) {
-        insertnb(node->right, key);
+        if (node->right == nullptr) {
+            node->right = new_node(key);
+        } else {
+            insertnb(node->right, key);
+        }
     } else {
-        insertnb(node->left, key);
+        if (node->left == nullptr) {
+            node->left = new_node(key);
+        } else {
+            insertnb(node->left, key);
+        }
     }
 
     return node;
 }
 
 Node *left_rotate(Node *x) {
-    Node *t;
-    t = x->left;
-    x->left = t->right;
-    t->right = x;
-    return t;
+    Node *tmp;
+    tmp = x->right;
+    x->right = tmp->left;
+    tmp->left = x;
+    return tmp;
 }
+/*
 
+a
+ \
+  b
+   \
+    c
+
+  b
+ /\
+a  c
+
+ */
