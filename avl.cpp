@@ -9,7 +9,7 @@ Node *insertnb(Node *node, int key);
 
 Node *left_rotate(Node *x);
 
-int height(Node *node);
+Node *right_rotate(Node *x);
 
 Node *new_node(int key) {
     Node *node = new Node;
@@ -47,6 +47,14 @@ Node *left_rotate(Node *x) {
     tmp = x->right;
     x->right = tmp->left;
     tmp->left = x;
+    return tmp;
+}
+
+Node *right_rotate(Node *x){
+    Node *tmp;
+    tmp = x->left;
+    x->left = tmp->right;
+    tmp->right = x;
     return tmp;
 }
 /*
