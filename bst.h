@@ -1,3 +1,18 @@
+#include <iostream>
+
+using namespace std;
+
+class IterationData {
+public:
+    int returnVal;
+    int iterationCount;
+
+    IterationData() {
+        this->returnVal = 0;
+        this->iterationCount = 0;
+    }
+};
+
 class BST {
 public:
     int data;
@@ -10,6 +25,8 @@ public:
     void insert(int);
 
     int nth_node(int n);
+
+    IterationData *nth_node(BST *node, IterationData *data, int n);
 };
 
 BST::BST() {
@@ -41,5 +58,33 @@ void BST::insert(int data) {
 }
 
 int BST::nth_node(int n) {
-
+    return nth_node(this, new IterationData, n)->returnVal;
 }
+
+IterationData *BST::nth_node(BST *node, IterationData *data, int n) {
+    if (node->left != nullptr) {
+        data = nth_node(node->left, data, n);
+    }
+    if (data->iterationCount < n) {
+        data->iterationCount++;
+        if (data->iterationCount == n) {
+            data->returnVal = node->data;
+            return data;
+        } else if (node->right != nullptr) {
+            return nth_node(node->right, data, n);
+        } else {
+            return data;
+        }
+    }
+}
+
+/*
+
+   10
+   /\
+  /  \
+ 1    20
+ /\   /\
+x  2 x 30
+
+ */
