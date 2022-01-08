@@ -1,8 +1,15 @@
 #include "cpluspluslabs.h"
+#include <cmath>
+
+using namespace std;
 
 Node *new_node(int key);
 
 Node *insertnb(Node *node, int key);
+
+Node *left_rotate(Node *x);
+
+int height(Node *node);
 
 Node *new_node(int key) {
     Node *node = new Node;
@@ -18,10 +25,19 @@ Node *insertnb(Node *node, int key) {
 
     node->height++;
     if (node->key < key) {
-        node->right = new_node(key);
+        insertnb(node->right, key);
     } else {
-        node->left = new_node(key);
+        insertnb(node->left, key);
     }
 
     return node;
 }
+
+Node *left_rotate(Node *x) {
+    Node *t;
+    t = x->left;
+    x->left = t->right;
+    t->right = x;
+    return t;
+}
+
