@@ -17,7 +17,7 @@ public:
 
 bool Stack::push(int x) {
     top++;
-    a[top]=x;
+    a[top] = x;
 }
 
 int Stack::pop() {
@@ -25,9 +25,12 @@ int Stack::pop() {
 }
 
 int Stack::peek() {
+    if (top == -1) {
+        return 0;
+    }
     return a[top];
 }
 
 bool Stack::isEmpty() {
-    return top==-1;
+    return top == -1;
 }
